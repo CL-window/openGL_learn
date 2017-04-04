@@ -17,7 +17,10 @@ import javax.microedition.khronos.opengles.GL10;
 
 public class BaseOpenGLRenderer implements GLSurfaceView.Renderer {
 
+    protected GL10 gl10;
+
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {
+        gl10 = gl;
         // Set the background color to black ( rgba ).
         gl.glClearColor(0.0f, 0.0f, 0.0f, 0.5f);  // OpenGL docs.
         // Enable Smooth Shading, default not really needed.
@@ -34,12 +37,14 @@ public class BaseOpenGLRenderer implements GLSurfaceView.Renderer {
     }
 
     public void onDrawFrame(GL10 gl) {
+        gl10 = gl;
         // Clears the screen and depth buffer.
         gl.glClear(GL10.GL_COLOR_BUFFER_BIT | // OpenGL docs.
                 GL10.GL_DEPTH_BUFFER_BIT);
     }
 
     public void onSurfaceChanged(GL10 gl, int width, int height) {
+        gl10 = gl;
         // Sets the current view port to the new size.
         gl.glViewport(0, 0, width, height);// OpenGL docs.
         // Select the projection matrix
