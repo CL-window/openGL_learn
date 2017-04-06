@@ -144,13 +144,41 @@ from  http://blog.csdn.net/mapdigit/article/details/7526823
 
 
 
+EGL : http://imgtec.eetrend.com/blog/6839
 
+EGLDisplay ——系统显示 ID 或句柄，可以理解为一个前端的显示窗口
+EGLSurface ——系统窗口或 frame buffer 句柄 ，可以理解为一个后端的渲染目标窗口。
+EGLConfig ——Surface的EGL配置，可以理解为绘制目标framebuffer的配置属性
+EGLContext ——OpenGL ES 图形上下文，它代表了OpenGL状态机；如果没有它，OpenGL指令就没有执行的环境
+1. 获取Display。
+    EGLDisplay display = EGL14.eglGetDisplay(EGL14.EGL_DEFAULT_DISPLAY);
+2.初始化
+    int[] version = new int[2];
+    boolean success = EGL14.eglInitialize(display, version, 0, version, 1)
+3.选择Config  Config实际指的是FrameBuffer的参数
+    EGLConfig[] configs = new EGLConfig[1];
+    int[] numConfigs = new int[1];
+    // C function EGLBoolean eglChooseConfig ( EGLDisplay dpy, const EGLint *attrib_list, EGLConfig *configs, EGLint config_size, EGLint *num_config )
+    // attr_list是以EGL_NONE结束的参数数组，通常以id,value依次存放，对于个别标识性的属性可以只有 id，没有value。
+    // 另一个办法是用EGLboolean eglGetConfigs(EGLDisplay dpy, EGLConfig * config, EGLint config_size, EGLint *num_config) 来获得所有config。
+    // 这两个函数都会返回不多于config_size个Config，结果保存在config[]中，系统的总Config个数保存 在num_config中
 
+    EGL14.eglChooseConfig(display,attrList, 0, configs, 0, configs.length, numConfigs, 0)
 
-
-
-
-
+4.构造Surface  Surface实际上就是一个FrameBuffer，也就是渲染目的地
+    final int[] surfaceAttrs = {EGL14.EGL_NONE};
+    // @param surface Surface | SurfaceTexture | SurfaceHolder | SurfaceView
+    eglSurface = EGL14.eglCreateWindowSurface(display, config, surface, surfaceAttrs, 0);
+5.创建Context
+    sharedContext = EGL14.EGL_NO_CONTEXT;
+    final int[] attr_list = {
+            EGL14.EGL_CONTEXT_CLIENT_VERSION, 2,
+            EGL14.EGL_NONE
+    };
+    EGLContext context = EGL14.eglCreateContext(
+                display, config, sharedContext, attr_list, 0);
+6.绘制
+    应用程序通过OpenGL API进行绘制，一帧完成之后，调用eglSwapBuffers(EGLDisplay dpy, EGLContext ctx)来显示
 
 
 
