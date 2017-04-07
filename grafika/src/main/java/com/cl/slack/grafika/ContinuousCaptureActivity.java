@@ -173,8 +173,8 @@ public class ContinuousCaptureActivity extends Activity implements SurfaceHolder
         mHandler = new MainHandler(this);
         mHandler.sendEmptyMessageDelayed(MainHandler.MSG_BLINK_TEXT, 1500);
 
-//        mOutputFile = new File(getFilesDir(), "continuous-capture.mp4");
-        mOutputFile = new File(Environment.getExternalStorageDirectory(), "continuous-capture.mp4");
+        mOutputFile = new File(getFilesDir(), "continuous-capture.mp4");
+//        mOutputFile = new File(Environment.getExternalStorageDirectory(), "continuous-capture.mp4");
         mSecondsOfVideo = 0.0f;
         updateControls();
     }
@@ -246,7 +246,7 @@ public class ContinuousCaptureActivity extends Activity implements SurfaceHolder
             throw new RuntimeException("Unable to open camera");
         }
 
-        setCameraDisplayOrientation(mCurrentCameraId,mCamera);
+        CameraUtils.setCameraDisplayOrientation(getWindowManager(),mCurrentCameraId,mCamera);
 
         Camera.Parameters parms = mCamera.getParameters();
 
@@ -271,34 +271,7 @@ public class ContinuousCaptureActivity extends Activity implements SurfaceHolder
 //        layout.setAspectRatio((double) cameraPreviewSize.width / cameraPreviewSize.height);
     }
 
-    /**
-     * 设置 预览方向
-     * @param cameraId
-     * @param camera
-     */
-    private void setCameraDisplayOrientation(int cameraId, android.hardware.Camera camera) {
-        android.hardware.Camera.CameraInfo info =
-                new android.hardware.Camera.CameraInfo();
-        android.hardware.Camera.getCameraInfo(cameraId, info);
-        int rotation = getWindowManager().getDefaultDisplay()
-                .getRotation();
-        int degrees = 0;
-        switch (rotation) {
-            case Surface.ROTATION_0: degrees = 0; break;
-            case Surface.ROTATION_90: degrees = 90; break;
-            case Surface.ROTATION_180: degrees = 180; break;
-            case Surface.ROTATION_270: degrees = 270; break;
-        }
 
-        if (info.facing == Camera.CameraInfo.CAMERA_FACING_FRONT) {
-            mRotatioOrientation= (info.orientation + degrees) % 360;
-            mRotatioOrientation = (360 - mRotatioOrientation) % 360;  // compensate the mirror
-        } else {  // back-facing
-            mRotatioOrientation = (info.orientation - degrees + 360) % 360;
-        }
-        camera.setDisplayOrientation(mRotatioOrientation);
-        camera.getParameters().setRotation(mRotatioOrientation);
-    }
 
     /**
      * Stops camera preview, and releases the camera to the system.
@@ -477,8 +450,10 @@ public class ContinuousCaptureActivity extends Activity implements SurfaceHolder
 
         // Send it to the video encoder.
         if (!mFileSaveInProgress) {
-            mEncoderSurface.makeCurrent();
-            GLES20.glViewport(0, 0, VIDEO_WIDTH, VIDEO_HEIGHT);
+            mEncoderSurface.makeCurrentReadFrom(mDisplaySurface);
+            GLES20.glViewport(0, 0, viewWidth, viewHeight);
+//            mEncoderSurface.makeCurrent();
+//            GLES20.glViewport(0, 0, VIDEO_WIDTH, VIDEO_HEIGHT);
             mFullFrameBlit.drawFrame(mTextureId, mTmpMatrix);
             drawExtra(mFrameNum, VIDEO_WIDTH, VIDEO_HEIGHT);
             mCircEncoder.frameAvailableSoon();

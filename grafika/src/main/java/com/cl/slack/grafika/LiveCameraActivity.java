@@ -35,6 +35,7 @@ public class LiveCameraActivity extends Activity implements TextureView.SurfaceT
 
     private Camera mCamera;
     private TextureView mTextureView;
+    private int mCameraId = Camera.CameraInfo.CAMERA_FACING_BACK;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +49,7 @@ public class LiveCameraActivity extends Activity implements TextureView.SurfaceT
 
     @Override
     public void onSurfaceTextureAvailable(SurfaceTexture surface, int width, int height) {
-        mCamera = Camera.open();
+        mCamera = CameraUtils.openCamera(mCameraId,1920,1080);
         if (mCamera == null) {
             // Seeing this on Nexus 7 2012 -- I guess it wants a rear-facing camera, but
             // there isn't one.  TODO: fix
@@ -56,6 +57,14 @@ public class LiveCameraActivity extends Activity implements TextureView.SurfaceT
         }
 
         try {
+            CameraUtils.setCameraDisplayOrientation(getWindowManager(),mCameraId,mCamera);
+
+            Camera.Parameters parms = mCamera.getParameters();
+
+            CameraUtils.choosePreviewSize(parms, 1920, 1080);
+
+            mCamera.setParameters(parms);
+
             mCamera.setPreviewTexture(surface);
             mCamera.startPreview();
         } catch (IOException ioe) {

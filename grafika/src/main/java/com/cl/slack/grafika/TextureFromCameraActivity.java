@@ -80,8 +80,8 @@ public class TextureFromCameraActivity extends Activity implements SurfaceHolder
     private static final int DEFAULT_ROTATE_PERCENT = 0;    // 0-100
 
     // Requested values; actual may differ.
-    private static final int REQ_CAMERA_WIDTH = 1280;
-    private static final int REQ_CAMERA_HEIGHT = 720;
+    private static final int REQ_CAMERA_WIDTH = 1920;
+    private static final int REQ_CAMERA_HEIGHT = 1080;
     private static final int REQ_CAMERA_FPS = 30;
 
     // The holder for our SurfaceView.  The Surface can outlive the Activity (e.g. when
@@ -112,6 +112,7 @@ public class TextureFromCameraActivity extends Activity implements SurfaceHolder
     private int mZoomWidth, mZoomHeight;
     private int mRotateDeg;
 
+    private final int mCameraId = Camera.CameraInfo.CAMERA_FACING_FRONT;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -142,7 +143,7 @@ public class TextureFromCameraActivity extends Activity implements SurfaceHolder
         Log.d(TAG, "onResume BEGIN");
         super.onResume();
 
-        mRenderThread = new RenderThread(mHandler);
+        mRenderThread = new RenderThread(mHandler,openCamera(REQ_CAMERA_WIDTH, REQ_CAMERA_HEIGHT));
         mRenderThread.setName("TexFromCam Render");
         mRenderThread.start();
         mRenderThread.waitUntilReady();
@@ -160,6 +161,13 @@ public class TextureFromCameraActivity extends Activity implements SurfaceHolder
         }
         Log.d(TAG, "onResume END");
     }
+
+    private Camera openCamera(int desiredWidth, int desiredHeight) {
+        Camera camera = CameraUtils.openCamera(mCameraId,desiredWidth,desiredHeight);
+//        CameraUtils.setCameraDisplayOrientation(getWindowManager(),mCameraId,camera);
+        return camera;
+    }
+
 
     @Override
     protected void onPause() {
@@ -458,8 +466,9 @@ public class TextureFromCameraActivity extends Activity implements SurfaceHolder
          * Constructor.  Pass in the MainHandler, which allows us to send stuff back to the
          * Activity.
          */
-        public RenderThread(MainHandler handler) {
+        public RenderThread(MainHandler handler,Camera camera) {
             mMainHandler = handler;
+            mCamera = camera;
         }
 
         /**
@@ -478,7 +487,7 @@ public class TextureFromCameraActivity extends Activity implements SurfaceHolder
 
             // Prepare EGL and open the camera before we start handling messages.
             mEglCore = new EglCore(null, 0);
-            openCamera(REQ_CAMERA_WIDTH, REQ_CAMERA_HEIGHT, REQ_CAMERA_FPS);
+            initCamera(REQ_CAMERA_FPS);
 
             Looper.loop();
 
@@ -714,42 +723,13 @@ public class TextureFromCameraActivity extends Activity implements SurfaceHolder
          * <p>
          * Sets mCameraPreviewWidth / mCameraPreviewHeight.
          */
-        private void openCamera(int desiredWidth, int desiredHeight, int desiredFps) {
-            if (mCamera != null) {
-                throw new RuntimeException("camera already initialized");
-            }
-
-            Camera.CameraInfo info = new Camera.CameraInfo();
-
-            // Try to find a front-facing camera (e.g. for videoconferencing).
-            int numCameras = Camera.getNumberOfCameras();
-            for (int i = 0; i < numCameras; i++) {
-                Camera.getCameraInfo(i, info);
-                if (info.facing == Camera.CameraInfo.CAMERA_FACING_FRONT) {
-                    mCamera = Camera.open(i);
-                    break;
-                }
-            }
-            if (mCamera == null) {
-                Log.d(TAG, "No front-facing camera found; opening default");
-                mCamera = Camera.open();    // opens first back-facing camera
-            }
-            if (mCamera == null) {
-                throw new RuntimeException("Unable to open camera");
-            }
+        private void initCamera(int desiredFps) {
 
             Camera.Parameters parms = mCamera.getParameters();
 
-            CameraUtils.choosePreviewSize(parms, desiredWidth, desiredHeight);
 
             // Try to set the frame rate to a constant value.
             int thousandFps = CameraUtils.chooseFixedPreviewFps(parms, desiredFps * 1000);
-
-            // Give the camera a hint that we're recording video.  This can have a big
-            // impact on frame rate.
-            parms.setRecordingHint(true);
-
-            mCamera.setParameters(parms);
 
             int[] fpsRange = new int[2];
             Camera.Size mCameraPreviewSize = parms.getPreviewSize();

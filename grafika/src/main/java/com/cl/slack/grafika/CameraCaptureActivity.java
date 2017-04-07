@@ -143,6 +143,8 @@ public class CameraCaptureActivity extends Activity
     // this is static so it survives activity restarts
     private static TextureMovieEncoder sVideoEncoder = new TextureMovieEncoder();
 
+    private final int mCameraId = Camera.CameraInfo.CAMERA_FACING_FRONT;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -183,11 +185,11 @@ public class CameraCaptureActivity extends Activity
         Log.d(TAG, "onResume -- acquiring camera");
         super.onResume();
         updateControls();
-        openCamera(1280, 720);      // updates mCameraPreviewWidth/Height
+        openCamera(1920, 1080);      // updates mCameraPreviewWidth/Height
 
         // Set the preview aspect ratio.
-        AspectFrameLayout layout = (AspectFrameLayout) findViewById(R.id.cameraPreview_afl);
-        layout.setAspectRatio((double) mCameraPreviewWidth / mCameraPreviewHeight);
+//        AspectFrameLayout layout = (AspectFrameLayout) findViewById(R.id.cameraPreview_afl);
+//        layout.setAspectRatio((double) mCameraPreviewWidth / mCameraPreviewHeight);
 
         mGLView.onResume();
         mGLView.queueEvent(new Runnable() {
@@ -247,24 +249,9 @@ public class CameraCaptureActivity extends Activity
             throw new RuntimeException("camera already initialized");
         }
 
-        Camera.CameraInfo info = new Camera.CameraInfo();
+        mCamera = CameraUtils.openCamera(mCameraId,desiredWidth,desiredHeight);
 
-        // Try to find a front-facing camera (e.g. for videoconferencing).
-        int numCameras = Camera.getNumberOfCameras();
-        for (int i = 0; i < numCameras; i++) {
-            Camera.getCameraInfo(i, info);
-            if (info.facing == Camera.CameraInfo.CAMERA_FACING_FRONT) {
-                mCamera = Camera.open(i);
-                break;
-            }
-        }
-        if (mCamera == null) {
-            Log.d(TAG, "No front-facing camera found; opening default");
-            mCamera = Camera.open();    // opens first back-facing camera
-        }
-        if (mCamera == null) {
-            throw new RuntimeException("Unable to open camera");
-        }
+        CameraUtils.setCameraDisplayOrientation(getWindowManager(),mCameraId,mCamera);
 
         Camera.Parameters parms = mCamera.getParameters();
 

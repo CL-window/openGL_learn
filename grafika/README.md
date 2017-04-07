@@ -27,7 +27,8 @@ from google ：  https://github.com/google/grafika
         }
     }
 2. ContinuousCaptureActivity
-todo : 录制出来的 方向不对，
+    录制出来的 方向不对， 解决 ：mEncoderSurface.makeCurrentReadFrom(mDisplaySurface);
+    即使用预览的画面录制
     预览的方向 camera.setDisplayOrientation （适配2.2之上的手机）
     parameters.set("orientation", "portrait")或者parameters.setRotation(90) （适配下2.2以下）
 
@@ -48,6 +49,7 @@ todo : 录制出来的 方向不对，
     预览 mDisplaySurface 和 录制mEncoderSurface 使用 不同 Surface， 但是共用EGLContext，还有一个mCameraTexture 真正获取相机的返回数据
     录制的 MediaCodec createInputSurface ，和 录制mEncoderSurface 共用一个 Surface，这样就保证录制进去的是相机返回的数据
 
+    ＃camera 默认是横屏 ，所以 width 为竖屏时的高，height为竖屏时的宽
 
 2. BufferQueue 它的作用十分的简单：
 把提供图形数据buffer的生产者与接受图形数据并显示或进一步处理的消费者连接起来。生产者与消费者可以存在与不同的进程

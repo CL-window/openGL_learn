@@ -16,8 +16,12 @@
 
 package com.cl.slack.grafika;
 
+import android.app.Activity;
+import android.content.Context;
 import android.hardware.Camera;
 import android.util.Log;
+import android.view.Surface;
+import android.view.WindowManager;
 
 import java.util.List;
 
@@ -26,6 +30,45 @@ import java.util.List;
  */
 public class CameraUtils {
     private static final String TAG = MainActivity.TAG;
+
+    /**
+     * Opens a camera, and attempts to establish preview mode at the specified width and height.
+     * <p>
+     * Sets mCameraPreviewFps to the expected frame rate (which might actually be variable).
+     */
+    private static Camera mCamera;
+    public static Camera openCamera(int cameraId,int desiredWidth, int desiredHeight) {
+
+        Camera.CameraInfo info = new Camera.CameraInfo();
+
+        // Try to find a front-facing camera (e.g. for videoconferencing).
+        int numCameras = Camera.getNumberOfCameras();
+        for (int i = 0; i < numCameras; i++) {
+            Camera.getCameraInfo(i, info);
+            if (info.facing == cameraId) {
+                mCamera = Camera.open(i);
+                break;
+            }
+        }
+        if (mCamera == null) {
+            Log.d(TAG, "No front-facing camera found; opening default");
+            mCamera = Camera.open();    // opens first back-facing camera
+        }
+        if (mCamera == null) {
+            throw new RuntimeException("Unable to open camera");
+        }
+
+        Camera.Parameters parms = mCamera.getParameters();
+
+        parms.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE);//1连续对焦
+        mCamera.cancelAutoFocus();// 2如果要实现连续的自动对焦，这一句必须加上
+
+        choosePreviewSize(parms, desiredWidth, desiredHeight);
+
+        mCamera.setParameters(parms);
+
+        return mCamera;
+    }
 
     /**
      * Attempts to find a preview size that matches the provided width and height (which
@@ -94,4 +137,36 @@ public class CameraUtils {
         Log.d(TAG, "Couldn't find match for " + desiredThousandFps + ", using " + guess);
         return guess;
     }
+
+    /**
+     * 设置 预览方向
+     * @param cameraId
+     * @param camera
+     */
+    public static void setCameraDisplayOrientation(WindowManager windowManager, int cameraId, Camera camera) {
+        android.hardware.Camera.CameraInfo info =
+                new android.hardware.Camera.CameraInfo();
+        android.hardware.Camera.getCameraInfo(cameraId, info);
+        int rotation = windowManager.getDefaultDisplay()
+                .getRotation();
+        int degrees = 0;
+        switch (rotation) {
+            case Surface.ROTATION_0: degrees = 0; break;
+            case Surface.ROTATION_90: degrees = 90; break;
+            case Surface.ROTATION_180: degrees = 180; break;
+            case Surface.ROTATION_270: degrees = 270; break;
+        }
+
+        int result;
+        if (info.facing == Camera.CameraInfo.CAMERA_FACING_FRONT) {
+            result= (info.orientation + degrees) % 360;
+            result = (360 - result) % 360;  // compensate the mirror
+        } else {  // back-facing
+            result = (info.orientation - degrees + 360) % 360;
+        }
+        camera.setDisplayOrientation(result);
+        camera.getParameters().setRotation(result);
+    }
+
+
 }
