@@ -1,1 +1,1 @@
-include ':app', ':jnigl', ':javagl', ':decodeencodemp4'
+include ':app', ':jnigl', ':javagl', ':decodeencodemp4', ':grafika'

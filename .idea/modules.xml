@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/GraduatingDemo.iml" filepath="$PROJECT_DIR$/GraduatingDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/decodeencodemp4/decodeencodemp4.iml" filepath="$PROJECT_DIR$/decodeencodemp4/decodeencodemp4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/grafika/grafika.iml" filepath="$PROJECT_DIR$/grafika/grafika.iml" />
       <module fileurl="file://$PROJECT_DIR$/javagl/javagl.iml" filepath="$PROJECT_DIR$/javagl/javagl.iml" />
       <module fileurl="file://$PROJECT_DIR$/jnigl/jnigl.iml" filepath="$PROJECT_DIR$/jnigl/jnigl.iml" />
     </modules>
