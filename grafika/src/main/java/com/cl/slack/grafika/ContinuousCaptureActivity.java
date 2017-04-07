@@ -80,6 +80,7 @@ public class ContinuousCaptureActivity extends Activity implements SurfaceHolder
     private MainHandler mHandler;
     private float mSecondsOfVideo;
 
+    private int mRotatioOrientation;
     private int mCurrentCameraId = Camera.CameraInfo.CAMERA_FACING_FRONT;
 
     /**
@@ -289,14 +290,14 @@ public class ContinuousCaptureActivity extends Activity implements SurfaceHolder
             case Surface.ROTATION_270: degrees = 270; break;
         }
 
-        int result;
         if (info.facing == Camera.CameraInfo.CAMERA_FACING_FRONT) {
-            result = (info.orientation + degrees) % 360;
-            result = (360 - result) % 360;  // compensate the mirror
+            mRotatioOrientation= (info.orientation + degrees) % 360;
+            mRotatioOrientation = (360 - mRotatioOrientation) % 360;  // compensate the mirror
         } else {  // back-facing
-            result = (info.orientation - degrees + 360) % 360;
+            mRotatioOrientation = (info.orientation - degrees + 360) % 360;
         }
-        camera.setDisplayOrientation(result);
+        camera.setDisplayOrientation(mRotatioOrientation);
+        camera.getParameters().setRotation(mRotatioOrientation);
     }
 
     /**

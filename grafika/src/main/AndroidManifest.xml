@@ -32,7 +32,8 @@
         </activity>
         <activity
             android:name=".CameraCaptureActivity"
-            android:label="@string/title_activity_camera_capture" >
+            android:label="@string/title_activity_camera_capture"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".TextureViewGLActivity"

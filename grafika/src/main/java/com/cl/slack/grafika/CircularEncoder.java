@@ -55,6 +55,7 @@ public class CircularEncoder {
     private static final String MIME_TYPE = "video/avc";    // H.264 Advanced Video Coding
     private static final int IFRAME_INTERVAL = 1;           // sync frame every second
 
+
     private EncoderThread mEncoderThread;
     private Surface mInputSurface;
     private MediaCodec mEncoder;
@@ -126,7 +127,7 @@ public class CircularEncoder {
 
         // Start the encoder thread last.  That way we're sure it can see all of the state
         // we've initialized.
-        mEncoderThread = new EncoderThread(mEncoder, encBuffer, cb);
+        mEncoderThread = new EncoderThread(mEncoder, encBuffer, cb,width,height);
         mEncoderThread.start();
         mEncoderThread.waitUntilReady();
     }
@@ -224,11 +225,16 @@ public class CircularEncoder {
         private final Object mLock = new Object();
         private volatile boolean mReady = false;
 
+        private int mHeight, mWidth;
+
         public EncoderThread(MediaCodec mediaCodec, CircularEncoderBuffer encBuffer,
-                Callback callback) {
+                Callback callback,int w,int h) {
             mEncoder = mediaCodec;
             mEncBuffer = encBuffer;
             mCallback = callback;
+
+            mWidth = w;
+            mHeight = h;
 
             mBufferInfo = new MediaCodec.BufferInfo();
         }
@@ -421,6 +427,7 @@ public class CircularEncoder {
             }
             mCallback.fileSaveComplete(result);
         }
+
 
         /**
          * Tells the Looper to quit.
