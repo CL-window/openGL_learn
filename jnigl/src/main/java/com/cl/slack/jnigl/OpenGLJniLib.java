@@ -15,6 +15,6 @@ public class OpenGLJniLib {
 
     public static native void create();
 
-    public static native void step();
+    public static native void draw();
 
 }

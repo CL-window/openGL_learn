@@ -24,7 +24,7 @@ public class OpenGLJniRenderer implements GLSurfaceView.Renderer{
 
     @Override
     public void onDrawFrame(GL10 gl) {
-        OpenGLJniLib.step();
+        OpenGLJniLib.draw();
     }
 
 }
