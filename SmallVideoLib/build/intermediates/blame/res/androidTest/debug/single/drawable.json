@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "/Users/jf/Desktop/slack/graduating/GraduatingDemo/SmallVideoLib/build/intermediates/res/merged/androidTest/debug/drawable/record_camera_switch_selector.xml",
+        "source": "/Users/jf/Desktop/slack/graduating/GraduatingDemo/SmallVideoLib/build/intermediates/bundles/debug/res/drawable/record_camera_switch_selector.xml"
+    },
+    {
+        "merged": "/Users/jf/Desktop/slack/graduating/GraduatingDemo/SmallVideoLib/build/intermediates/res/merged/androidTest/debug/drawable/record_camera_flash_led_selector.xml",
+        "source": "/Users/jf/Desktop/slack/graduating/GraduatingDemo/SmallVideoLib/build/intermediates/bundles/debug/res/drawable/record_camera_flash_led_selector.xml"
+    },
+    {
+        "merged": "/Users/jf/Desktop/slack/graduating/GraduatingDemo/SmallVideoLib/build/intermediates/res/merged/androidTest/debug/drawable/small_video_shoot.xml",
+        "source": "/Users/jf/Desktop/slack/graduating/GraduatingDemo/SmallVideoLib/build/intermediates/bundles/debug/res/drawable/small_video_shoot.xml"
+    },
+    {
+        "merged": "/Users/jf/Desktop/slack/graduating/GraduatingDemo/SmallVideoLib/build/intermediates/res/merged/androidTest/debug/drawable/record_delete_selector.xml",
+        "source": "/Users/jf/Desktop/slack/graduating/GraduatingDemo/SmallVideoLib/build/intermediates/bundles/debug/res/drawable/record_delete_selector.xml"
+    },
+    {
+        "merged": "/Users/jf/Desktop/slack/graduating/GraduatingDemo/SmallVideoLib/build/intermediates/res/merged/androidTest/debug/drawable/record_next_seletor.xml",
+        "source": "/Users/jf/Desktop/slack/graduating/GraduatingDemo/SmallVideoLib/build/intermediates/bundles/debug/res/drawable/record_next_seletor.xml"
+    }
+]

@@ -1,5 +1,6 @@
 from google ：  https://github.com/google/grafika
-1. mp4播放：PlayMovieActivity
+1. mp4播放：PlayMovieActivity TextureView
+        PlayMovieSurfaceActivity  in SurfaceView
     MediaExtractor 分解音视频
     MediaCodec 播放，需要设置输出的 Surface
     decoder.configure(format, mOutputSurface, null, 0);
@@ -9,7 +10,7 @@ from google ：  https://github.com/google/grafika
     decoder.dequeueOutputBuffer // 获得你接收到结果的ByteBuffer的索引位置
     decoder.releaseOutputBuffer // 释放所有权
 1.1  需要在 UI线程执行的代码 可以 通过 Handler.sendMessage 实现
-// Send message through Handler so it runs on the right thread.
+    // Send message through Handler so it runs on the right thread.
     mLocalHandler.sendMessage(mLocalHandler.obtainMessage(MSG_PLAY_STOPPED, mFeedback));
     private static class LocalHandler extends Handler {
         @Override
@@ -26,6 +27,7 @@ from google ：  https://github.com/google/grafika
             }
         }
     }
+
 2. ContinuousCaptureActivity
     录制出来的 方向不对， 解决 ：mEncoderSurface.makeCurrentReadFrom(mDisplaySurface);
     即使用预览的画面录制
@@ -50,6 +52,28 @@ from google ：  https://github.com/google/grafika
     录制的 MediaCodec createInputSurface ，和 录制mEncoderSurface 共用一个 Surface，这样就保证录制进去的是相机返回的数据
 
     ＃camera 默认是横屏 ，所以 width 为竖屏时的高，height为竖屏时的宽
+
+3. TextureFromCameraActivity
+    支持 缩放 大小 旋转 改变
+    主要是 Sprite2d 这个类 Matrix 提供的方法，通过 translateM ，rotateM，scaleM变化一个 4*4 的矩阵
+
+    这个类使用的是
+    float[] modelView = mModelViewMatrix;
+    Matrix.setIdentityM(modelView, 0);
+    Matrix.translateM(modelView, 0, mPosX, mPosY, 0.0f);
+    if (mAngle != 0.0f) {
+        Matrix.rotateM(modelView, 0, mAngle, 0.0f, 0.0f, 1.0f);
+    }
+    Matrix.scaleM(modelView, 0, mScaleX, mScaleY, 1.0f);
+
+    后面就是通知 GL 绘制 grafika.gles.Sprite2d.draw(gles.FlatShadedProgram, float[])
+
+4. CameraCaptureActivity
+    GLSurfaceView.queueEvent() 运行在GL线程
+    根据不同选择使用不同shader处理显示画面
+    CameraSurfaceRenderer.updateFilter 里处理
+    mFullScreen.changeProgram(new Texture2dProgram(programType));
+    Texture2dProgram.java里定义了shader，使用 不同 Program ，GLES20.glDeleteProgram
 
 2. BufferQueue 它的作用十分的简单：
 把提供图形数据buffer的生产者与接受图形数据并显示或进一步处理的消费者连接起来。生产者与消费者可以存在与不同的进程
