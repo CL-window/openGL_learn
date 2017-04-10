@@ -74,7 +74,6 @@ public class SendSmallVideoActivity extends AppCompatActivity implements View.On
                 hesitate();
                 break;
             case R.id.tv_send:
-                break;
             case R.id.iv_video_screenshot:
                 startActivity(new Intent(this, VideoPlayerActivity.class).putExtra(
                         "path", videoUri));

@@ -8,7 +8,10 @@ import java.util.LinkedList;
 
 import mabeijianxi.camera.util.FileUtils;
 import mabeijianxi.camera.util.StringUtils;
-
+/**
+ * MediaPart  分段录制视频文件的片段
+ *
+ */
 @SuppressWarnings("serial")
 public class MediaObject implements Serializable {
 

@@ -10,6 +10,11 @@ import mabeijianxi.camera.model.MediaObject.MediaPart;
 
 /**
  * 视频录制：边录制边底层处理视频（旋转和裁剪）
+ * 音视频的处理都在c 底层
+ * 视频：onPreviewFrame     UtilityAdapter.RenderDataYuv(data);
+ *  获取camera 回调数据
+ * 音频：receiveAudioData   UtilityAdapter.RenderDataPcm(sampleBuffer);
+ *  获取 AudioRecord 采集数据
  */
 public class MediaRecorderNative extends MediaRecorderBase implements MediaRecorder.OnErrorListener {
 

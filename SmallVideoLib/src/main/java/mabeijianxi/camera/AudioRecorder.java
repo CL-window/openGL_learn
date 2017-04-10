@@ -5,7 +5,7 @@ import android.media.AudioRecord;
 
 /**
  * 音频录制
- * 
+ * 提供录音数据，必须是44100Hz，1channel，16bit unsigned
  */
 public class AudioRecorder extends Thread {
 
