@@ -4,11 +4,16 @@ import android.app.Activity;
 import android.graphics.ImageFormat;
 import android.graphics.SurfaceTexture;
 import android.hardware.Camera;
+import android.opengl.GLES11Ext;
 import android.util.Log;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 
+import com.cl.slack.camerafilter.camerafilter.MyGLUtils;
+
 import java.io.IOException;
+import java.util.ArrayDeque;
+import java.util.Queue;
 
 /**
  * Created by slack
@@ -24,8 +29,17 @@ public class CameraUtil implements Camera.PreviewCallback {
     private Camera camera = null;
     private int curCameraIndex = -1;
     private boolean isPreviewing;
+    private Queue<PreviewFrameCallback> mCallbacks = new ArrayDeque<>();
 
     private CameraUtil() {
+    }
+
+    public void addPreviewFramCallback(PreviewFrameCallback callback) {
+        mCallbacks.add(callback);
+    }
+
+    public void removePreviewFramCallback(PreviewFrameCallback callback) {
+        mCallbacks.remove(callback);
     }
 
     public void switchCamera() {
@@ -77,6 +91,14 @@ public class CameraUtil implements Camera.PreviewCallback {
         openCamera(curCameraIndex);
     }
 
+    public int getPreviewHeight() {
+        return camera.getParameters().getPreviewSize().height;
+    }
+
+    public int getPreviewWidth() {
+        return camera.getParameters().getPreviewSize().width;
+    }
+
     private void startPreview() {
         isPreviewing = true;
         camera.startPreview();
@@ -106,17 +128,30 @@ public class CameraUtil implements Camera.PreviewCallback {
         }
     }
 
-    /**
-     * 使用TextureView预览Camera
-     *
-     * @param surface
-     */
+    public void doStartPreview() {
+        Log.i("slack", "doStartPreview...");
+        if (isPreviewing) {
+            camera.stopPreview();
+            return;
+        }
+        if (camera != null) {
+            try {
+                camera.setPreviewTexture(new SurfaceTexture(GLES11Ext.GL_TEXTURE_EXTERNAL_OES));
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            startPreview();
+        }
+    }
+
     public void doStartPreview(SurfaceTexture surface) {
         Log.i("slack", "doStartPreview...");
         if (isPreviewing) {
             camera.stopPreview();
             return;
         }
+
         if (camera != null) {
             try {
                 camera.setPreviewTexture(surface);
@@ -176,5 +211,12 @@ public class CameraUtil implements Camera.PreviewCallback {
     public void onPreviewFrame(byte[] data, Camera camera) {
         camera.addCallbackBuffer(data);
         //
+        for (PreviewFrameCallback callback : mCallbacks) {
+            callback.onPreviewFrame(data);
+        }
+    }
+
+    public interface PreviewFrameCallback {
+        void onPreviewFrame(byte[] data);
     }
 }

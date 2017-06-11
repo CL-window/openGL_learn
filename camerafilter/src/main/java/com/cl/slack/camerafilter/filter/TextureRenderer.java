@@ -319,7 +319,7 @@ public class TextureRenderer implements GLSurfaceView.Renderer{
         });
     }
 
-    // TODO: 17/6/11  
+    // TODO: 17/6/11 未测试
     private void loadTexture(int cameraTexId, int canvasWidth, int canvasHeight){
         GLES20.glGenTextures(2, mTextures , 0);
 
@@ -327,8 +327,6 @@ public class TextureRenderer implements GLSurfaceView.Renderer{
 
         mImageWidth = canvasWidth;
         mImageHeight = canvasHeight;
-
-        GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, mTextures[0]);
 
         GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
         GLES20.glBindTexture(GLES11Ext.GL_TEXTURE_EXTERNAL_OES, cameraTexId);

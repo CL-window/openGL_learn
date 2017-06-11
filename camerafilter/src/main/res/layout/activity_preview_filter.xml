@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="fill_parent"
-              android:layout_height="fill_parent"
-              android:orientation="vertical" >
+              android:layout_height="fill_parent" >
 
-    <RelativeLayout
-        android:id="@+id/previewLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+    <LinearLayout android:layout_width="fill_parent"
+                  android:layout_height="fill_parent"
+                  android:orientation="vertical" >
 
-    <RelativeLayout
-        android:id="@+id/GLpreviewLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        <RelativeLayout
+            android:id="@+id/previewLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-</LinearLayout>
+        <RelativeLayout
+            android:id="@+id/GLpreviewLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <com.cl.slack.camerafilter.camera.CameraGLSurfaceView
+            android:id="@+id/gl_surface_view"
+            android:layout_width="480px"
+            android:layout_height="640px"/>
+
+    </LinearLayout>
+
+</ScrollView>

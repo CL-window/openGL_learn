@@ -2,18 +2,24 @@ package com.cl.slack.camerafilter;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
 
+import com.cl.slack.camerafilter.camera.CameraGLSurfaceView;
 import com.cl.slack.camerafilter.camera.CameraSurfaceView;
 import com.cl.slack.camerafilter.camera.CameraTextureView;
+import com.cl.slack.camerafilter.camera.CameraUtil;
 
 public class PreviewFilterActivity extends AppCompatActivity {
 
-//    private CameraGLSurfaceView mGLView = null;
+    private CameraGLSurfaceView mCameraGLView = null;
+    private CameraSurfaceView mGLView = null;
     private CameraTextureView cameraView = null;
-//    private CameraSurfaceView cameraView = null;
-    private RelativeLayout previewLayout = null,GLpreviewLayout = null;
+    private RelativeLayout previewLayout = null, GLpreviewLayout = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,20 +28,59 @@ public class PreviewFilterActivity extends AppCompatActivity {
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         RelativeLayout.LayoutParams layoutParams = null;
-
-//        //GL绘制窗口
-//        GLpreviewLayout = (RelativeLayout)findViewById(R.id.GLpreviewLayout);
-//        layoutParams = new RelativeLayout.LayoutParams(640,480);
-//        mGLView = new CameraGLSurfaceView(this);
-//        GLpreviewLayout.addView(mGLView, layoutParams);
+        //GL绘制窗口
+        GLpreviewLayout = (RelativeLayout) findViewById(R.id.GLpreviewLayout);
+        layoutParams = new RelativeLayout.LayoutParams(480, 640);
+        mGLView = new CameraSurfaceView(this, false);
+        GLpreviewLayout.addView(mGLView, layoutParams);
 
         //视频窗口
-        previewLayout = (RelativeLayout)findViewById(R.id.previewLayout);
-        layoutParams = new RelativeLayout.LayoutParams(480, 640);
-        cameraView = new CameraTextureView(this);
-//        cameraView = new CameraSurfaceView(this);
-//        cameraView.setCameraPreviewCallback(mGLView);
-        previewLayout.addView(cameraView, layoutParams);
+//        previewLayout = (RelativeLayout) findViewById(R.id.previewLayout);
+//        layoutParams = new RelativeLayout.LayoutParams(480, 640);
+//        cameraView = new CameraTextureView(this);
+//        cameraView.addPreviewFramCallback(mPreviewFrameCallback);
+//        previewLayout.addView(cameraView, layoutParams);
 
+        mCameraGLView = (CameraGLSurfaceView) findViewById(R.id.gl_surface_view);
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        Log.i("slack", "menu create...");
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+//        renderer.setCurrentEffect(item.getItemId());
+//        mEffectView.requestRender();
+        return true;
+    }
+
+    /**
+     * CameraTextureView ---(画面)--> CameraSurfaceView
+     * TODO 卡的要死
+     */
+    private CameraUtil.PreviewFrameCallback mPreviewFrameCallback =
+            new CameraUtil.PreviewFrameCallback() {
+                @Override
+                public void onPreviewFrame(byte[] data) {
+                    mGLView.updateCanvas(data);
+                }
+            };
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mCameraGLView.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mCameraGLView.onPause();
     }
 }
