@@ -1,1 +1,1 @@
-include ':app', ':jnigl', ':javagl', ':decodeencodemp4', ':grafika', ':SmallVideoLib', ':smallvideorecode', ':exoplayer', ':mix', ':cameraview', ':cameraviewdemo'
+include ':app', ':jnigl', ':javagl', ':decodeencodemp4', ':grafika', ':SmallVideoLib', ':smallvideorecode', ':exoplayer', ':mix', ':cameraview', ':cameraviewdemo', ':camerafilter'

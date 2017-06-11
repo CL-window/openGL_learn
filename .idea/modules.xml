@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/GraduatingDemo.iml" filepath="$PROJECT_DIR$/GraduatingDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/SmallVideoLib/SmallVideoLib.iml" filepath="$PROJECT_DIR$/SmallVideoLib/SmallVideoLib.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/camerafilter/camerafilter.iml" filepath="$PROJECT_DIR$/camerafilter/camerafilter.iml" />
       <module fileurl="file://$PROJECT_DIR$/cameraview/cameraview.iml" filepath="$PROJECT_DIR$/cameraview/cameraview.iml" />
       <module fileurl="file://$PROJECT_DIR$/cameraviewdemo/cameraviewdemo.iml" filepath="$PROJECT_DIR$/cameraviewdemo/cameraviewdemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/decodeencodemp4/decodeencodemp4.iml" filepath="$PROJECT_DIR$/decodeencodemp4/decodeencodemp4.iml" />
