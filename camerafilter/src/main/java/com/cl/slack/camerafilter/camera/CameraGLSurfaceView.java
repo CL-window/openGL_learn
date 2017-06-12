@@ -12,6 +12,8 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
 /**
+ * from : http://blog.etongwl.com/archives/675.html
+ * 使用 new SurfaceTexture(id) 做预览
  * Created by slack
  * on 17/6/9 下午6:45
  */

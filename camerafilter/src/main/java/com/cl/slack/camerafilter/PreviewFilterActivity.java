@@ -9,14 +9,13 @@ import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
 
-import com.cl.slack.camerafilter.camera.CameraGLSurfaceView;
 import com.cl.slack.camerafilter.camera.CameraSurfaceView;
 import com.cl.slack.camerafilter.camera.CameraTextureView;
 import com.cl.slack.camerafilter.camera.CameraUtil;
 
 public class PreviewFilterActivity extends AppCompatActivity {
 
-    private CameraGLSurfaceView mCameraGLView = null;
+//    private CameraGLSurfaceView mCameraGLSurfaceView = null;
     private CameraSurfaceView mGLView = null;
     private CameraTextureView cameraView = null;
     private RelativeLayout previewLayout = null, GLpreviewLayout = null;
@@ -28,20 +27,24 @@ public class PreviewFilterActivity extends AppCompatActivity {
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         RelativeLayout.LayoutParams layoutParams = null;
-        //GL绘制窗口
-        GLpreviewLayout = (RelativeLayout) findViewById(R.id.GLpreviewLayout);
-        layoutParams = new RelativeLayout.LayoutParams(480, 640);
-        mGLView = new CameraSurfaceView(this, false);
-        GLpreviewLayout.addView(mGLView, layoutParams);
 
         //视频窗口
-//        previewLayout = (RelativeLayout) findViewById(R.id.previewLayout);
-//        layoutParams = new RelativeLayout.LayoutParams(480, 640);
-//        cameraView = new CameraTextureView(this);
+        previewLayout = (RelativeLayout) findViewById(R.id.previewLayout);
+        layoutParams = new RelativeLayout.LayoutParams(480, 640);
+        cameraView = new CameraTextureView(this);
 //        cameraView.addPreviewFramCallback(mPreviewFrameCallback);
-//        previewLayout.addView(cameraView, layoutParams);
+        previewLayout.addView(cameraView, layoutParams);
 
-        mCameraGLView = (CameraGLSurfaceView) findViewById(R.id.gl_surface_view);
+
+        //GL绘制窗口
+//        GLpreviewLayout = (RelativeLayout) findViewById(R.id.GLpreviewLayout);
+//        layoutParams = new RelativeLayout.LayoutParams(480, 640);
+//        mGLView = new CameraSurfaceView(this, false);
+//        GLpreviewLayout.addView(mGLView, layoutParams);
+
+
+
+//        mCameraGLSurfaceView = (CameraGLSurfaceView) findViewById(R.id.gl_surface_view);
 
     }
 
@@ -75,12 +78,12 @@ public class PreviewFilterActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        mCameraGLView.onResume();
+//        mCameraGLSurfaceView.onResume();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        mCameraGLView.onPause();
+//        mCameraGLSurfaceView.onPause();
     }
 }

@@ -10,6 +10,7 @@ import android.view.SurfaceView;
 /**
  * Created by slack
  * on 17/6/9 下午6:01
+ * 太卡
  */
 
 public class CameraSurfaceView extends SurfaceView implements SurfaceHolder.Callback {

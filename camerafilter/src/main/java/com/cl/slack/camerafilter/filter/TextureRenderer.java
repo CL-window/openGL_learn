@@ -328,6 +328,7 @@ public class TextureRenderer implements GLSurfaceView.Renderer{
         mImageWidth = canvasWidth;
         mImageHeight = canvasHeight;
 
+        GLES20.glUseProgram(mProgram);
         GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
         GLES20.glBindTexture(GLES11Ext.GL_TEXTURE_EXTERNAL_OES, cameraTexId);
 
