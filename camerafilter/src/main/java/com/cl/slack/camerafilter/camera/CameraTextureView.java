@@ -176,11 +176,6 @@ public class CameraTextureView extends TextureView implements TextureView.Surfac
         return mSurfaceId;
     }
 
-    private PreviewCallback mPreviewCallback;
-    public void setPreviewCallback(PreviewCallback callback) {
-        mPreviewCallback = callback;
-    }
-
     @Override
     public void onFrameAvailable(SurfaceTexture surfaceTexture) {
 //        Log.i("slack", "onFrameAvailable...");
@@ -189,10 +184,6 @@ public class CameraTextureView extends TextureView implements TextureView.Surfac
         // Update the camera preview texture
         synchronized (this) {
             mCamreaSurfaceTexture.updateTexImage();
-        }
-
-        if(mPreviewCallback != null) {
-            mPreviewCallback.onFrameAvailable();
         }
 
         // Draw camera preview
@@ -204,7 +195,4 @@ public class CameraTextureView extends TextureView implements TextureView.Surfac
 
     }
 
-    public interface PreviewCallback {
-        void onFrameAvailable();
-    }
 }

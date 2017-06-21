@@ -27,6 +27,8 @@
 
         <activity android:name=".camerafilter.FilterActivity"/>
 
+        <activity android:name=".camerafilter2.Filter2Activity"/>
+
     </application>
 
 </manifest>

@@ -1,6 +1,8 @@
 实时预览滤镜：
 滤镜使用Android4.x以后提供的 Effect 类来完成
 
+一篇很好的文章：http://tangzm.com/blog/?p=20
+
 another from : https://github.com/nekocode/CameraFilter
 
 在 OpenGL ES 中你必须创建两种着色器：顶点着色器 (vertex shaders) 和片段着色器 (fragment shaders)。

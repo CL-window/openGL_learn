@@ -1,0 +1,1178 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="#eee"
+                tools:context=".MainActivity" >
+
+    <Button
+        android:onClick="onClicklast"
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/layout1"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="11dp"
+        android:layout_marginLeft="40dp"
+        android:background="@drawable/btn_style_one"
+        android:text="中文答案" />
+
+    <Button
+        android:onClick="onClicknext"
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/button1"
+        android:layout_alignBottom="@+id/button1"
+        android:layout_alignRight="@+id/layout1"
+        android:layout_marginRight="40dp"
+        android:background="@drawable/btn_style_one"
+        android:text="小写拼音答案" />
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout1" >
+        <Spinner
+            android:id="@+id/spinner_num"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+        </Spinner>
+        <!-- 定义一个下拉菜单 -->
+        <EditText
+            android:background="@drawable/item_single"
+            android:layout_above="@+id/spinner_num"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_margin="5dp"
+            android:id="@+id/editText0"
+            android:layout_below="@+id/spinner_num"
+            >
+        </EditText>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="" >
+
+        <LinearLayout
+            android:id="@+id/linearlayout1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:orientation="horizontal" >
+
+                <EditText
+                    android:id="@+id/editText1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:gravity="center"
+                    android:background="@drawable/gridempty"
+                    android:ems="1" >
+
+                    <requestFocus />
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText7"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText9"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText10"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:orientation="horizontal" >
+
+                <EditText
+                    android:gravity="center"
+                    android:id="@+id/editText11"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1" >
+
+
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText12"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText13"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText14"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText15"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText16"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText17"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText18"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText19"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText20"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:orientation="horizontal" >
+
+                <EditText
+                    android:gravity="center"
+                    android:id="@+id/editText21"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1" >
+
+
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText22"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText23"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText24"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText25"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText26"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText27"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText28"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText29"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText30"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:orientation="horizontal" >
+
+                <EditText
+                    android:gravity="center"
+                    android:id="@+id/editText31"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1" >
+
+
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText32"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText33"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText34"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText35"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText36"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText37"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText38"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText39"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText40"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:orientation="horizontal" >
+
+                <EditText
+                    android:gravity="center"
+                    android:id="@+id/editText41"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1" >
+
+
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText42"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText43"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText44"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText45"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText46"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText47"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText48"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText49"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText50"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:orientation="horizontal" >
+
+                <EditText
+                    android:gravity="center"
+                    android:id="@+id/editText51"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1" >
+
+
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText52"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText53"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText54"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText55"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText56"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText57"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText58"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText59"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText60"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+            </LinearLayout>
+
+
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:orientation="horizontal" >
+
+                <EditText
+                    android:gravity="center"
+                    android:id="@+id/editText61"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1" >
+
+
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText62"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText63"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText64"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText65"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText66"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText67"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText68"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText69"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText70"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+            </LinearLayout>
+
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:orientation="horizontal" >
+
+                <EditText
+                    android:gravity="center"
+                    android:id="@+id/editText71"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1" >
+
+
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText72"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText73"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText74"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText75"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText76"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText77"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText78"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText79"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText80"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+            </LinearLayout>
+
+
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:orientation="horizontal" >
+
+                <EditText
+                    android:gravity="center"
+                    android:id="@+id/editText81"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1" >
+
+
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText82"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText83"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText84"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText85"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText86"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText87"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText88"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText89"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText90"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:orientation="horizontal" >
+
+                <EditText
+                    android:gravity="center"
+                    android:id="@+id/editText91"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1" >
+
+
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText92"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText93"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText94"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText95"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText96"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText97"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText98"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText99"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+
+                <EditText
+                    android:id="@+id/editText100"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/gridempty"
+                    android:ems="1"
+                    android:gravity="center" >
+                </EditText>
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</RelativeLayout>

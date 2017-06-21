@@ -320,7 +320,7 @@ public class TextureRenderer implements GLSurfaceView.Renderer{
     }
 
     // TODO: 17/6/11 未测试
-    private void loadTexture(int cameraTexId, int canvasWidth, int canvasHeight){
+    public void loadTexture(int cameraTexId, int canvasWidth, int canvasHeight){
         GLES20.glGenTextures(2, mTextures , 0);
 
         updateTextureSize(canvasWidth, canvasHeight);
@@ -352,6 +352,7 @@ public class TextureRenderer implements GLSurfaceView.Renderer{
     private void applyEffect() {
         if(mEffect == null){
             Log.i("info","apply Effect null mEffect");
+            return;
         }
 
         mEffect.apply(mTextures[0], mImageWidth, mImageHeight, mTextures[1]);

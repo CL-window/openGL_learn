@@ -104,6 +104,12 @@ public class CameraUtil implements Camera.PreviewCallback {
         camera.startPreview();
         camera.setPreviewCallback(this);
         camera.setDisplayOrientation(90);
+        camera.autoFocus(new Camera.AutoFocusCallback() {
+            @Override
+            public void onAutoFocus(boolean success, Camera camera) {
+                Log.i("slack", "onAutoFocus success: " + success);
+            }
+        });
     }
 
     /**

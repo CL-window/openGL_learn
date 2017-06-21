@@ -9,16 +9,20 @@ import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
 
+import com.cl.slack.camerafilter.camera.CameraGLSurfaceView;
 import com.cl.slack.camerafilter.camera.CameraSurfaceView;
 import com.cl.slack.camerafilter.camera.CameraTextureView;
+import com.cl.slack.camerafilter.camera.CameraTextureView2;
 import com.cl.slack.camerafilter.camera.CameraUtil;
 
 public class PreviewFilterActivity extends AppCompatActivity {
 
-//    private CameraGLSurfaceView mCameraGLSurfaceView = null;
+    private CameraGLSurfaceView mCameraGLSurfaceView = null;
     private CameraSurfaceView mGLView = null;
     private CameraTextureView cameraView = null;
     private RelativeLayout previewLayout = null, GLpreviewLayout = null;
+
+    private CameraTextureView2 mViewCopy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +36,15 @@ public class PreviewFilterActivity extends AppCompatActivity {
         previewLayout = (RelativeLayout) findViewById(R.id.previewLayout);
         layoutParams = new RelativeLayout.LayoutParams(480, 640);
         cameraView = new CameraTextureView(this);
-//        cameraView.addPreviewFramCallback(mPreviewFrameCallback);
+        cameraView.addPreviewFramCallback(mPreviewFrameCallback);
         previewLayout.addView(cameraView, layoutParams);
 
+        //GL绘制窗口
+        GLpreviewLayout = (RelativeLayout) findViewById(R.id.GLpreviewLayout);
+        layoutParams = new RelativeLayout.LayoutParams(480, 640);
+        mViewCopy = new CameraTextureView2(this);
+        mViewCopy.updateTexImageId(cameraView.getSurfaceId());
+        GLpreviewLayout.addView(mViewCopy, layoutParams);
 
         //GL绘制窗口
 //        GLpreviewLayout = (RelativeLayout) findViewById(R.id.GLpreviewLayout);
@@ -58,8 +68,7 @@ public class PreviewFilterActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-//        renderer.setCurrentEffect(item.getItemId());
-//        mEffectView.requestRender();
+
         return true;
     }
 
@@ -71,19 +80,25 @@ public class PreviewFilterActivity extends AppCompatActivity {
             new CameraUtil.PreviewFrameCallback() {
                 @Override
                 public void onPreviewFrame(byte[] data) {
-                    mGLView.updateCanvas(data);
+                    if(mViewCopy != null) {
+                        mViewCopy.onFrameAvailable();
+                    }
                 }
             };
 
     @Override
     protected void onResume() {
         super.onResume();
-//        mCameraGLSurfaceView.onResume();
+        if(mCameraGLSurfaceView != null) {
+            mCameraGLSurfaceView.onResume();
+        }
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-//        mCameraGLSurfaceView.onPause();
+        if(mCameraGLSurfaceView != null) {
+            mCameraGLSurfaceView.onPause();
+        }
     }
 }

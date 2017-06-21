@@ -8,6 +8,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/CameraFilter3" />
             <option value="$PROJECT_DIR$/SmallVideoLib" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/camerafilter" />
@@ -15,11 +16,14 @@
             <option value="$PROJECT_DIR$/cameraviewdemo" />
             <option value="$PROJECT_DIR$/decodeencodemp4" />
             <option value="$PROJECT_DIR$/exoplayer" />
+            <option value="$PROJECT_DIR$/filterdemo" />
+            <option value="$PROJECT_DIR$/filtermodule" />
             <option value="$PROJECT_DIR$/grafika" />
             <option value="$PROJECT_DIR$/javagl" />
             <option value="$PROJECT_DIR$/jnigl" />
             <option value="$PROJECT_DIR$/mix" />
             <option value="$PROJECT_DIR$/smallvideorecode" />
+            <option value="$PROJECT_DIR$/wordgame" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

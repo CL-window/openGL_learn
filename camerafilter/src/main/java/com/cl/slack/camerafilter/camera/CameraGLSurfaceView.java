@@ -8,6 +8,8 @@ import android.opengl.GLSurfaceView;
 import android.util.AttributeSet;
 import android.util.Log;
 
+import com.cl.slack.camerafilter.filter.TextureRenderer;
+
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
@@ -63,6 +65,7 @@ public class CameraGLSurfaceView extends GLSurfaceView implements GLSurfaceView.
         // TODO Auto-generated method stub
         GLES20.glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
         GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
+        // 用updateTexImage将Camera中新的预览写入纹理 必须在GL thread中执行updateTexImage()
         mSurface.updateTexImage();
         float[] mtx = new float[16];
         mSurface.getTransformMatrix(mtx);
@@ -98,6 +101,6 @@ public class CameraGLSurfaceView extends GLSurfaceView implements GLSurfaceView.
     @Override
     public void onFrameAvailable(SurfaceTexture surfaceTexture) {
         // TODO Auto-generated method stub
-        this.requestRender();
+        this.requestRender(); // 请求重绘
     }
 }

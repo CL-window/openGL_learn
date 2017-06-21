@@ -23,4 +23,11 @@
         android:textAllCaps="false"
         android:text="web camera filter"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="FilterFromWeb2Click"
+        android:textAllCaps="false"
+        android:text="web camera filter 2"/>
+
 </LinearLayout>

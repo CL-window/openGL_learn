@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.cl.slack.camerafilter.camerafilter.FilterActivity;
+import com.cl.slack.camerafilter.camerafilter2.Filter2Activity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,5 +28,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void FilterFromWebClick(View view) {
         startActivity(new Intent(this, FilterActivity.class));
+    }
+
+    /**
+     * 使用步骤 see {@link com.cl.slack.camerafilter.camerafilter2.filter.CameraFilter} onDraw
+     *
+     */
+    public void FilterFromWeb2Click(View view) {
+        startActivity(new Intent(this, Filter2Activity.class));
     }
 }
