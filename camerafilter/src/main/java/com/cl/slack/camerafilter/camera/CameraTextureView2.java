@@ -30,7 +30,6 @@ public class CameraTextureView2 extends TextureView implements TextureView.Surfa
     @Override
     public void onSurfaceTextureAvailable(SurfaceTexture surface, int width,
                                           int height) {
-        // TODO Auto-generated method stub
         Log.i("slack", "onSurfaceTextureAvailable...");
         surfaceTexture = surface;
         mDirectDrawer = new DirectDrawer(mTextureID);

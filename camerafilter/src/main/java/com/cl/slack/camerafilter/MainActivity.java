@@ -30,11 +30,4 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, FilterActivity.class));
     }
 
-    /**
-     * 使用步骤 see {@link com.cl.slack.camerafilter.camerafilter2.filter.CameraFilter} onDraw
-     *
-     */
-    public void FilterFromWeb2Click(View view) {
-        startActivity(new Intent(this, Filter2Activity.class));
-    }
 }

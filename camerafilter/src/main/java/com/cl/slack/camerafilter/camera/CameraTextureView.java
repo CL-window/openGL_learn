@@ -1,12 +1,16 @@
 package com.cl.slack.camerafilter.camera;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.SurfaceTexture;
+import android.opengl.EGL14;
 import android.opengl.GLES11Ext;
 import android.opengl.GLES20;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.TextureView;
+
+import com.cl.slack.camerafilter.camerafilter2.util.GlUtil;
 
 import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLConfig;
@@ -180,9 +184,12 @@ public class CameraTextureView extends TextureView implements TextureView.Surfac
     public void onFrameAvailable(SurfaceTexture surfaceTexture) {
 //        Log.i("slack", "onFrameAvailable...");
         GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT);
-
         // Update the camera preview texture
         synchronized (this) {
+            if (!egl10.eglMakeCurrent(eglDisplay, eglSurface, eglSurface, eglContext)) {
+                Log.e("slack", "egl make current fail...");
+                return;
+            }
             mCamreaSurfaceTexture.updateTexImage();
         }
 
@@ -191,7 +198,15 @@ public class CameraTextureView extends TextureView implements TextureView.Surfac
 
         // Flush
         GLES20.glFlush();
-        egl10.eglSwapBuffers(eglDisplay, eglSurface);
+        // fail !!!
+//        if(!egl10.eglCopyBuffers(eglDisplay, eglSurface, eglSurface)) {
+//            Log.e("slack", "copy buffer fail...");
+//        }
+
+        if(!egl10.eglSwapBuffers(eglDisplay, eglSurface)) {
+            Log.e("slack", "swap buffer fail...");
+        }
+
 
     }
 

@@ -10,6 +10,12 @@
 #define div255(x) (x * 0.003921F)
 #define abs(x) (x>=0 ? x:(-x))
 
+//MagicBeautify MagicBeautify::instance;
+//MagicBeautify* MagicBeautify::getInstance()
+//{
+//	return &instance;
+//}
+
 MagicBeautify* MagicBeautify::instance;
 
 MagicBeautify* MagicBeautify::getInstance()

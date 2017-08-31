@@ -6,6 +6,7 @@
 class MagicBeautify
 {
 public:
+//	static MagicBeautify instance;
 	void initMagicBeautify(JniBitmap* jniBitmap);
 	void unInitMagicBeautify();
 
