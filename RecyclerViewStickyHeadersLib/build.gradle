@@ -1,0 +1,29 @@
+apply plugin: 'com.android.library'
+
+dependencies {
+    compile 'com.android.support:recyclerview-v7:25.3.1'
+}
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 23
+    }
+}
+
+/*2016-4-12 09:26:45  注释
+install {
+    repositories.mavenInstaller {
+        pom.artifactId = 'recyclerview-stickyheaders'
+    }
+}*/
+
+/*2016年4月12日09:52:49 注释
+apply from: 'https://raw.github.com/chrisbanes/gradle-mvn-push/master/gradle-mvn-push.gradle'
+
+afterEvaluate {
+    androidJavadocs.classpath += project.android.libraryVariants.toList().first().javaCompile.classpath
+}*/

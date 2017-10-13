@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="countries_cn">
+
+        <item>AA</item>
+        <item>AB</item>
+        <item>AC</item>
+        <item>AD</item>
+        <item>AE</item>
+
+        <item>BB</item>
+        <item>BC</item>
+        <item>BD</item>
+
+        <item>CC</item>
+        <item>CD</item>
+        <item>CE</item>
+
+        <item>EE</item>
+        <item>EF</item>
+        <item>EG</item>
+
+        <item>FF</item>
+        <item>FG</item>
+        <item>FI</item>
+
+        <item>上海</item>
+        <item>上饶</item>
+        <item>重庆</item>
+        <item>西安</item>
+        <item>西藏</item>
+    </string-array>
+</resources>

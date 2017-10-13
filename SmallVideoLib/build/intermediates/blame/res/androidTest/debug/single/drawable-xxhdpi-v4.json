@@ -4,12 +4,12 @@
         "source": "/Users/jf/Desktop/slack/graduating/GraduatingDemo/SmallVideoLib/build/intermediates/bundles/debug/res/drawable-xxhdpi-v4/record_camera_flash_led_off_normal.png"
     },
     {
-        "merged": "/Users/jf/Desktop/slack/graduating/GraduatingDemo/SmallVideoLib/build/intermediates/res/merged/androidTest/debug/drawable-xxhdpi-v4/record_cancel_normal.png",
-        "source": "/Users/jf/Desktop/slack/graduating/GraduatingDemo/SmallVideoLib/build/intermediates/bundles/debug/res/drawable-xxhdpi-v4/record_cancel_normal.png"
-    },
-    {
         "merged": "/Users/jf/Desktop/slack/graduating/GraduatingDemo/SmallVideoLib/build/intermediates/res/merged/androidTest/debug/drawable-xxhdpi-v4/record_next_press.png",
         "source": "/Users/jf/Desktop/slack/graduating/GraduatingDemo/SmallVideoLib/build/intermediates/bundles/debug/res/drawable-xxhdpi-v4/record_next_press.png"
+    },
+    {
+        "merged": "/Users/jf/Desktop/slack/graduating/GraduatingDemo/SmallVideoLib/build/intermediates/res/merged/androidTest/debug/drawable-xxhdpi-v4/record_cancel_normal.png",
+        "source": "/Users/jf/Desktop/slack/graduating/GraduatingDemo/SmallVideoLib/build/intermediates/bundles/debug/res/drawable-xxhdpi-v4/record_cancel_normal.png"
     },
     {
         "merged": "/Users/jf/Desktop/slack/graduating/GraduatingDemo/SmallVideoLib/build/intermediates/res/merged/androidTest/debug/drawable-xxhdpi-v4/record_delete_check_normal.png",

@@ -90,7 +90,7 @@ public class Triangle extends Shape {
 
     @Override
     public void onSurfaceChanged(GL10 gl, int width, int height) {
-
+        GLES20.glViewport(0,0,width,height);
     }
 
     @Override

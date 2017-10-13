@@ -98,10 +98,12 @@ public abstract class AFilter implements GLSurfaceView.Renderer {
         GLES20.glClearColor(1.0f,1.0f,1.0f,1.0f);
         GLES20.glEnable(GLES20.GL_TEXTURE_2D);
         mProgram=ShaderUtils.createProgram(mContext.getResources(),vertex,fragment);
+        // vertex need
         glHPosition=GLES20.glGetAttribLocation(mProgram,"vPosition");
         glHCoordinate=GLES20.glGetAttribLocation(mProgram,"vCoordinate");
-        glHTexture=GLES20.glGetUniformLocation(mProgram,"vTexture");
         glHMatrix=GLES20.glGetUniformLocation(mProgram,"vMatrix");
+        // fragment need
+        glHTexture=GLES20.glGetUniformLocation(mProgram,"vTexture");
         hIsHalf=GLES20.glGetUniformLocation(mProgram,"vIsHalf");
         glHUxy=GLES20.glGetUniformLocation(mProgram,"uXY");
         onDrawCreatedSet(mProgram);

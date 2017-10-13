@@ -4,7 +4,10 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CameraFilter3/CameraFilter3.iml" filepath="$PROJECT_DIR$/CameraFilter3/CameraFilter3.iml" />
       <module fileurl="file://$PROJECT_DIR$/GraduatingDemo.iml" filepath="$PROJECT_DIR$/GraduatingDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LouisRecyclerViewStickyHeadersDemo/LouisRecyclerViewStickyHeadersDemo.iml" filepath="$PROJECT_DIR$/LouisRecyclerViewStickyHeadersDemo/LouisRecyclerViewStickyHeadersDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RecyclerViewStickyHeadersLib/RecyclerViewStickyHeadersLib.iml" filepath="$PROJECT_DIR$/RecyclerViewStickyHeadersLib/RecyclerViewStickyHeadersLib.iml" />
       <module fileurl="file://$PROJECT_DIR$/SmallVideoLib/SmallVideoLib.iml" filepath="$PROJECT_DIR$/SmallVideoLib/SmallVideoLib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/StickyListHeadersSample/StickyListHeadersSample.iml" filepath="$PROJECT_DIR$/StickyListHeadersSample/StickyListHeadersSample.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/camerafilter/camerafilter.iml" filepath="$PROJECT_DIR$/camerafilter/camerafilter.iml" />
       <module fileurl="file://$PROJECT_DIR$/cameraview/cameraview.iml" filepath="$PROJECT_DIR$/cameraview/cameraview.iml" />
@@ -16,6 +19,7 @@
       <module fileurl="file://$PROJECT_DIR$/grafika/grafika.iml" filepath="$PROJECT_DIR$/grafika/grafika.iml" />
       <module fileurl="file://$PROJECT_DIR$/javagl/javagl.iml" filepath="$PROJECT_DIR$/javagl/javagl.iml" />
       <module fileurl="file://$PROJECT_DIR$/jnigl/jnigl.iml" filepath="$PROJECT_DIR$/jnigl/jnigl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
       <module fileurl="file://$PROJECT_DIR$/mix/mix.iml" filepath="$PROJECT_DIR$/mix/mix.iml" />
       <module fileurl="file://$PROJECT_DIR$/openglDemo/openglDemo.iml" filepath="$PROJECT_DIR$/openglDemo/openglDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/smallvideorecode/smallvideorecode.iml" filepath="$PROJECT_DIR$/smallvideorecode/smallvideorecode.iml" />

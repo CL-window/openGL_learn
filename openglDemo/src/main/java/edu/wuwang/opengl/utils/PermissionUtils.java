@@ -26,8 +26,7 @@ public class PermissionUtils {
             if(result== PackageManager.PERMISSION_GRANTED){
                 runnable.run();
             }else{
-                ActivityCompat.requestPermissions(context,new String[]{Manifest.permission.CAMERA
-                    ,Manifest.permission.WRITE_EXTERNAL_STORAGE},req);
+                ActivityCompat.requestPermissions(context,permissions,req);
             }
         }else{
             runnable.run();
