@@ -23,6 +23,7 @@
       <module fileurl="file://$PROJECT_DIR$/mix/mix.iml" filepath="$PROJECT_DIR$/mix/mix.iml" />
       <module fileurl="file://$PROJECT_DIR$/openglDemo/openglDemo.iml" filepath="$PROJECT_DIR$/openglDemo/openglDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/smallvideorecode/smallvideorecode.iml" filepath="$PROJECT_DIR$/smallvideorecode/smallvideorecode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/stickylistheaders/stickylistheaders.iml" filepath="$PROJECT_DIR$/stickylistheaders/stickylistheaders.iml" />
       <module fileurl="file://$PROJECT_DIR$/wordgame/wordgame.iml" filepath="$PROJECT_DIR$/wordgame/wordgame.iml" />
     </modules>
   </component>
